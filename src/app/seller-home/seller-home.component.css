@@ -1,0 +1,76 @@
+
+.row{
+    background-color: #F5F5F7;
+}
+/* .row, .col-4, .productImage{ */
+    /* border: 1px solid red;     */
+    /* border: 1px dotted purple; */
+/* } */
+/* img { */
+    /* border: 1px dotted purple; */
+    /* width: 500px; */
+    /* height: 270px; */
+
+    /* width: 280px; */
+    /* height: 300px; */
+/* } */
+
+.prodName h4 a {
+    color: black;
+    text-decoration: none;
+}
+.prodName h4 a:hover {
+    color: blue;
+}
+/* button css */
+
+.button-5 {
+  /* align-items: center; */
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  /* display: inline-flex; */
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  /* justify-content: center; */
+  line-height: 0.80;
+  margin-top: 1rem;
+  margin: .1rem;
+  min-height: 1rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  /* position: relative; */
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  /* touch-action: manipulation; */
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover {
+  background-color: #A3A5A2;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+/* .button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+} */
+.delete {
+  /* background-color: red; */
+  background-color: red;
+}
+.edit {
+    background-color: seagreen;
+}

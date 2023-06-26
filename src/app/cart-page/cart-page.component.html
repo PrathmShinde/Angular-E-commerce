@@ -1,0 +1,108 @@
+<section class="container-fluid">
+  <div class="container-fluid py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="row">
+              <div class="col-lg-7">
+                <h5 class="mb-3">
+                  <a routerLink="/" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Continue
+                    shopping</a>
+                </h5>
+                <hr />
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">Shopping cart</p>
+                  </div>
+                  <div>
+                    <p class="mb-0">
+                      <span class="text-muted">Sort by:</span>
+                      <a href="#!" class="text-body">price <i class="fas fa-angle-down mt-1"></i></a>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between" *ngFor = "let cart of cartData">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="{{cart.productImageUrl}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px" />
+                        </div>
+                        <div class="ms-3">
+                          <h5>{{cart.productName}}</h5>
+                          <p class="small mb-0">{{cart.productColor}}</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center justify-content-between  w-50 ">
+                        <div>
+                          <h5 class="fw-normal mb-0">{{cart.quantity}}</h5>
+                        </div>
+                        <div>
+                          <h5 class="mb-0">{{cart.productPrice| currency : "INR"}}</h5>
+                        </div>
+                        <a (click) = "removeToCart(cart.id)" style="cursor: pointer;" ><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- /////////////////////////////////////////////////////////////////////////// -->
+
+
+              </div>
+              <div class="col-lg-5">
+                <div class="card bg-primary text-white rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">Cart Summary</h5>
+                      
+                    </div>
+
+                    
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">{{priceSummary.price | currency : "INR"}}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Shipping</p>
+                      <p class="mb-2">{{priceSummary.delivery | currency : "INR"}}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Discount 10%</p>
+                      <p class="mb-2">{{priceSummary.discount | currency : "INR"}}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2"> Taxes</p>
+                      <p class="mb-2">{{priceSummary.tax | currency : "INR"}}</p>
+                    </div>
+
+                    <button type="button" class="btn btn-info d-flex justify-content-between w-100">
+                    
+                        <span>{{priceSummary.total | currency : "INR"}}</span>
+                        <span (click) = "checkOut()" >Checkout<i class="fas fa-long-arrow-alt-right ms-2"></i></span> 
+                      
+                        <!-- <div class="total">{{priceSummary.total | currency : "INR"}}</div> -->
+                        <!-- <div class="checkout" (click) = "checkOut()">Checkout<i class="fas fa-long-arrow-alt-right ms-2"></i></div> -->
+                      
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- <a  href="https://icons8.com/icon/Eb3DPuqTzKkY/fast-cart">Fast Cart</a> icon by <a href="https://icons8.com">Icons8</a> -->
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">{{productData.productName}}</h3>
+            <h6 class="card-subtitle">From {{productData.productCategory}}</h6>
+            <div class="row">
+                <div class=" img-box col-lg-5 col-md-5 col-sm-6 ">
+                    <div class="white-box text-center">
+                        <img src="{{productData.productImageUrl}}" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">Product description</h4>
+                    <p>{{productData.productDescription}}</p>
+                    <h2 class="mt-5 mb-3">{{productData.productPrice | currency : "INR"}}<small class="text-success">(36%off)</small>
+                    </h2>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex mb-3 quantity-group">
+                        <button (click)="handleQuantity('min')" >-</button>   
+                        <input type="text" value="{{productQuantity}}">
+                        <button (click)="handleQuantity('plus')">+</button>   
+                    </div>     
+                    <button *ngIf = "!removeCart"  class="btn btn-dark btn-rounded mr-1" (click) = "addToCart()" data-toggle="tooltip" title="Add to Cart" data-original-title="Add to cart">
+                        <i class="fa fa-shopping-cart"></i>
+                    </button>                 
+                    <button  *ngIf = "removeCart" class="btn btn-danger btn-rounded m-2" (click) = "removeToCart(productData.id)">Remove to Cart</button>
+
+                 <button class="btn btn-primary btn-rounded m-2">Buy Now</button>
+                    <h3 class="box-title mt-5">Key Highlights</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check text-success"></i>Study structure</li>
+                        <li><i class="fa fa-check text-success"></i>Designed to foster easy portability</li>
+                        <li><i class="fa fa-check text-success"></i>Perfect furniture to flaunt your wonderful collectibles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<div class="container pt-5">
+    <div class="row clearfix" >
+        <div class="col-lg-3 col-md-4 col-sm-12" >
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html"></a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$13.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

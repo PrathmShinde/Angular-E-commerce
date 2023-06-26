@@ -1,0 +1,30 @@
+*{
+/* border: 1px solid black; */
+}
+body{
+  background-color: #F5F5F7;
+}
+.container {
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.add-new-product{
+    /* display: flex; */
+    /* border: 1px solid red; */
+    margin-left: 2rem;
+    width: 94%;
+}
+.addButton {
+/* .row{ */
+    display: flex;
+    flex-direction: row-reverse;
+    /* flex-direction: column; */
+  }
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+  small {
+    color: red;
+  }

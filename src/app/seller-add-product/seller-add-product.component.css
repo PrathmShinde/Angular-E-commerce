@@ -1,0 +1,16 @@
+.add-new-product{
+    display: flex;
+}
+.addButton {
+/* .row{ */
+    display: flex;
+    flex-direction: row-reverse;
+    /* flex-direction: column; */
+}
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+small {
+    color: red;
+  }
+  

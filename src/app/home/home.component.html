@@ -1,0 +1,93 @@
+<ngb-carousel *ngIf="popularProducts">
+  <ng-template *ngFor="let item of popularProducts" ngbSlide>
+    <div class="picsum-img-wrapper">
+      <a routerLink = "/details/{{item.id}}">
+      <img
+        class="product-size"
+        src="{{ item.productImageUrl }}"
+        alt="Random first slide"
+      />
+      </a>
+    </div>
+    <div class="carousel-caption">
+      <h3>{{ item.productName }}</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <!-- <p>{{item.productDescription}}</p> -->
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<div class="container pt-5 trendyItems">
+  <h1>Trendy items</h1>
+  <div class="row row-cols-4 row-cols-md-4 g-4">
+    <div class="col" *ngFor = "let item of trendyProducts">
+      <div class="card text-black">
+		<div class="img-css">
+      <a routerLink = "/details/{{item.id}}">
+         <img
+          src="{{item.productImageUrl}}"
+          class=" img-fluid p-2"
+          alt="Apple mobile"
+        /> 
+        </a>
+	</div>
+        <div class="card-body">
+          <div class="text-center">
+            <h5 class="card-title">{{item.productName}}</h5>
+            <p class="text-muted mb-2">Apple pro display FHD</p>
+          </div>
+          <div>
+            <div class="d-flex justify-content-between">
+              <span>Color</span><span>{{item.productColor}}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Price</span><span>{{item.productPrice | currency : "INR"}}</span>
+            </div>
+            <!-- <div class="d-flex justify-content-between">
+				  <span>Vesa Mount Adapter</span><span>$199</span>
+				</div> -->
+          </div>
+          <div class="d-flex justify-content-between total font-weight-bold mt-2">
+            <span> <a routerLink = "/details/{{item.id}}">View Details</a></span>
+			<span><a href="#">Add to cart</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- section 3 -->
+<hr>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<div class="container pt-5">
+  <h3>Continue Shopping For</h3>
+    <div class="row clearfix" >
+        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor = "let item of continueShopping" >
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                      <a routerLink = "/details/{{item.id}}">
+                        <img src="{{item.productImageUrl}}" alt="Product" class="img-fluid">
+                        </a>
+                        <div class="hover">
+                            <a routerLink = "/details/{{item.id}}" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a routerLink = "/details/{{item.id}}" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html"></a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">{{item.productPrice | currency : "INR"}} <small class="text-success">(36%off)</small></li>
+                            <li class="new_price">$13.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- <app-footer></app-footer> -->

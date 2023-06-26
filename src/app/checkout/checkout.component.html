@@ -1,0 +1,90 @@
+    <div class="checkout">
+        <div class="checkout-heading">
+            <h3>Checkout</h3>
+        </div>
+        <form class="mx-1 mx-md-4 p-3" [formGroup]="checkout" (ngSubmit)="checkOut()" >
+    
+            <div class="d-flex flex-row align-items-center mb-4 ">
+                <i class="fa-solid fa-envelope m-2"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input type="email" class="form-control" formControlName= "email" placeholder="Email Id" />
+                <small *ngIf="checkout.get('email')!.hasError('email')"><i class="fa-solid fa-circle-info"></i> Enter a valid Email Address</small>
+              </div>
+            </div>
+            <div class="d-flex flex-row align-items-center mb-4 mt-2">
+                <i class="fa-solid fa-phone m-2"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input type="text" class="form-control" formControlName= "mobile" placeholder="Mobile No" />
+                <small
+                *ngIf="checkout.get('mobile')!.touched && checkout.get('mobile')!.hasError('minlength') || checkout.get('mobile')!.hasError('maxlength')|| checkout.get('mobile')!.hasError('pattern')"> <i class="fa-solid fa-circle-info"></i> Please,
+                Enter 10 digits Mobile Number(Only digits accepted)</small>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fa-solid fa-location-dot m-2"></i>
+              <div class="form-outline flex-fill ">
+                <textarea type="text"  class="form-control" formControlName="address" cols="30" rows="3" placeholder="Address" ></textarea>
+                <small *ngIf="checkout.get('address')!.touched && checkout.get('address')!.hasError('minlength')"><i class="fa-solid fa-circle-info"></i>Address should be minimum 50 characters</small>
+              </div>
+            </div>
+
+            <!-- <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-2"> -->
+              <!-- <button type="submit" class="btn btn-primary btn-lg" >Register</button> -->
+            <!-- </div>   -->
+            
+       
+
+        <fieldset>
+            <legend >Payment Method</legend>
+
+            <div class="form__radios">
+                <div class="form__radio">
+                    <label for="visa"><svg class="icon">
+                            <use xlink:href="#icon-COD" />
+                        </svg>Cash On Delivery</label>
+                    <input checked id="visa" name="payment-method" type="radio" />
+                </div>
+            </div>
+        </fieldset>
+
+        <div>
+            <h2>Shopping Bill</h2>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>SubTotal</td>
+                        <td align="right">{{priceSummary.price | currency : "INR"}}</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping fee</td>
+                        <td align="right">{{priceSummary.delivery | currency : "INR"}}</td>
+                    </tr>
+                    <tr>
+                        <td>Discount 10%</td>
+                        <td align="right">{{priceSummary.discount | currency : "INR"}}</td>
+                    </tr>
+                    <tr>
+                        <td>Taxes</td>
+                        <td align="right">{{priceSummary.tax | currency : "INR"}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td align="right">{{priceSummary.total | currency : "INR"}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div>
+            <button class="button button--full mt-3 mb-2" type="submit" >
+                <svg class="icon">
+                    <use xlink:href="#icon-shopping-bag" />
+                </svg>Order Now
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+<section class="h-100" style="background-color: #eee">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-normal mb-0 text-black">My Orders</h3>
+
+                </div>
+
+                <div class="card rounded-3 mb-2 p-2 d-flex flex-row justify-content-between">
+                   <div>Order</div>
+                   <div>Order ID</div>
+                   <div>Price</div>
+                   <div>Status</div>
+                   <div>action</div>
+                </div>
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4" *ngFor = "let order of orderData" >
+                        <div class="row d-flex justify-content-between align-items-center" >
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                    class="img-fluid rounded-3" alt="Cotton T-shirt" /> -->
+                                <img src="data:image/png;base64,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"
+                                    class="img-fluid rounded-3" width="65px" height="65px"  alt="Cart_img" />
+                            </div>
+
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <p>#{{order.id}}</p>
+                                <!-- <p>#100</p> -->
+                            </div>
+
+                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <p>{{order.totalPrice | currency : "INR"}}</p>
+                                <!-- <p>12,500</p> -->
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <p>In process</p>
+                            </div>
+                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <a class="text-danger" style="cursor: pointer;"  (click)="cancelOrder(order.id)" ><i class="fas fa-trash fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

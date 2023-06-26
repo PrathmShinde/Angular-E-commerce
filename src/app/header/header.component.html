@@ -1,0 +1,107 @@
+<nav class="navbar  navbar-expand-lg navbar-light bg-warning">
+  <div class="container-fluid d-flex justify-content-between">
+    <div>
+      <a class="navbar-brand h4" routerLink="/">E-kart</a>
+    </div>
+
+    <div *ngIf="menuType !== 'seller'">
+      <form class="d-flex searchbar">
+        <input class="form-control me-2" #searchInput style="width: 530px" type="search" placeholder="Search Ecart.in"
+          aria-label="Search" (blur)="hideSearch()" (keyup)="searchProduct($event)" />
+        <button class="btn btn-outline-primary" (click)="submitSearch(searchInput.value)" style="width: 100px"
+          type="submit">
+          Search
+        </button>
+        <ul class="suggested-result" *ngIf="searchResult">
+          <li *ngFor="let item of searchResult">
+            <a (mousedown)="redirectToDetails(item.id)">{{
+              item.productName
+              }}</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------- -->
+    
+    <!-- <div class="input-group">
+      <div class="form-outline">
+        <input type="search" id="form1" class="form-control" />
+        <label class="form-label" for="form1">Search</label>
+      </div>
+      <button type="button" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div> -->
+
+    <!-- ---------------------------------------------------------------------------------------- -->
+
+    <div>
+      <div class="collapse navbar-collapse" [ngSwitch]="menuType">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'default'">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="/seller-auth">Seller</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="/user-auth" tabindex="-1" aria-disabled="true" data-toggle="tooltip" title="User Login" data-original-title="User Login" ><i class="fa-solid fa-user-plus"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="/cart" data-toggle="tooltip" title=" Cart" data-original-title="Add to cart" ><i class="fa-solid fa-cart-shopping">  <span class="position-absolute top-1 start-5 translate-middle badge rounded-pill bg-success">
+              {{cartItems}}
+              <span class="visually-hidden">unread messages</span>
+            </span> </i></a>
+          </li>
+        </ul>
+
+        <!-- //seller login work -->
+        
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'seller'">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link addProductLink fw-bold" (click)="openSellerAddComponent()">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="/seller-home">Product List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold">Hello,{{ sellerName }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout fw-bold" (click)="logout()" tabindex="-1" aria-disabled="true" data-toggle="tooltip" title="Logout" data-original-title="Logout" ><i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
+        </ul>
+
+        <!-- // user work -->
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'user'">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" aria-current="page" routerLink="/">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link fw-bold" tabindex="-1" aria-disabled="true">Hello,{{ userName | titlecase }}</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="/my-orders">My Orders</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" [routerLink]="cartItems>0?'/cart-page':null" tabindex="-1" aria-disabled="true" data-toggle="tooltip" title=" Cart" data-original-title="Add to cart" ><i class="fa-solid fa-cart-shopping">  <span class="position-absolute top-1 start-5 translate-middle badge rounded-pill bg-success">
+            {{cartItems}}
+            <span class="visually-hidden">unread messages</span>
+          </span> </i></a>
+        </li>
+
+          <li class="nav-item">
+            <a class="nav-link logout fw-bold" (click)="userLogout()" tabindex="-1" aria-disabled="true" data-toggle="tooltip" title="Logout" data-original-title="Logout" ><i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

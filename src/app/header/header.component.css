@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Exo+2&display=swap');
+
+.logout {
+    cursor: pointer;
+}
+.addProductLink {
+    cursor: pointer;
+}
+.suggested-result {
+    position: absolute;
+    display: list-item !important;
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    top: 40px;
+    border: 1px solid #ddd;
+}
+.suggested-result li {
+    border: 1px solid #ddd;
+    padding: 5px;
+    list-style-type: none;
+}
+.suggested-result li a {
+    text-decoration: none;
+    color: blueviolet;
+    cursor: pointer;
+}
+.nav-item a i {
+    font-size: 1.3rem;
+}
+.navbar-brand {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+.searchbar {
+    margin-left: 11rem;
+}
+.nav-item span{
+    font-size: .5rem;
+}

@@ -1,0 +1,79 @@
+<div class="container add-new-product pt-3 pb-0 px-auto w-100">
+  <div>
+    <h4>Add New Product</h4>
+    <p class="">
+      seller-add-product works! Lorem ipsum, dolor sit amet consectetuati
+      praesentium voluptas.
+    </p>
+  </div>
+</div>
+
+<!-- <form class="pt-2 pb-2 px-2 border border-danger"> -->
+<form class="pt-2 pb-2 px-2" [formGroup]="addproduct" (ngSubmit)="addProduct()">
+  <div class="row mt-0 mb-4 mx-auto mw-100">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Product Name"
+        aria-label="product name"
+        formControlName = "productName"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter Product Price"
+        aria-label="Product price"
+        formControlName = "productPrice"
+      />
+    </div>
+  </div>
+  <div class="row mt-0 mb-4 mx-auto mw-100">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Product Color"
+        aria-label="product color"
+        formControlName = "productColor"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Product Category"
+        aria-label="Product category"
+        formControlName = "productCategory"
+      />
+    </div>
+  </div>
+  <div class="row mt-0 mb-4 mx-auto mw-100">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Product Image URL"
+        aria-label="Product url"
+        formControlName = "productImageUrl"
+      />
+    </div>
+  </div>
+  <div class="row mt-0 mb-3 mx-auto mw-100">
+    <div class="col">
+      <textarea
+        class="form-control"
+        placeholder="Enter Product Description..." cols="30" rows="6"
+        formControlName = "productDescription"
+      ></textarea>
+      <small *ngIf="addproduct.get('productDescription')!.touched && addproduct.get('productDescription')!.hasError('minlength')"><i class="fa-solid fa-circle-info"></i> Product description should be minimum 50 characters</small>
+    </div>
+  </div>
+  <div class="row  mt-0 mb-2 mx-auto ">
+    <div class="col addButton">
+      <button type="submit" class="btn btn-primary" [disabled]="!addproduct.valid" >Add Product</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,113 @@
+<div class="container mt-5">
+  <div class="add-new-product pt-3 pb-0">
+    <div>
+      <h4>Update Product Details</h4>
+      <p class="">
+        seller-update-product works! Lorem ipsum, dolor sit amet consectetuati
+        praesentium voluptas.
+      </p>
+    </div>
+  </div>
+
+  <div class="container-fluid pt-3 pb-0">
+    <!-- <form class="pt-2 pb-2 px-2 border border-danger"> -->
+    <form
+      class="pt-2 pb-2 px-2"
+      [formGroup]="updateproduct"
+      (ngSubmit)="updateProduct()"
+    >
+      <div class="row mt-0 mb-3 mx-auto mw-100">
+        <div class="col">
+          <label for="">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Product Name"
+            aria-label="product name"
+            formControlName="productName"
+            [(ngModel)]="productData.productName"
+          />
+        </div>
+        <div class="col">
+          <label for="">Prouct Price</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter Product Price"
+            aria-label="Product price"
+            formControlName="productPrice"
+            [(ngModel)]="productData.productPrice"
+          />
+        </div>
+      </div>
+      <div class="row mt-0 mb-3 mx-auto mw-100">
+        <div class="col">
+          <label for="">Product Color</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Product Color"
+            aria-label="product color"
+            formControlName="productColor"
+            [(ngModel)]="productData.productColor"
+          />
+        </div>
+        <div class="col">
+          <label for="">Product Category</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Product Category"
+            aria-label="Product category"
+            formControlName="productCategory"
+            [(ngModel)]="productData.productCategory"
+          />
+        </div>
+      </div>
+      <div class="row mt-0 mb-3 mx-auto mw-100">
+        <div class="col">
+          <label for="">Enter Image Url</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Product Image URL"
+            aria-label="Product url"
+            formControlName="productImageUrl"
+            [(ngModel)]="productData.productImageUrl"
+          />
+        </div>
+      </div>
+      <div class="row mt-0 mb-3 mx-auto mw-100">
+        <div class="col">
+          <label for="">Product Description</label>
+          <textarea
+            class="form-control"
+            placeholder="Enter Product Description..."
+            cols="30"
+            rows="8"
+            formControlName="productDescription"
+            [(ngModel)]="productData.productDescription"
+          ></textarea>
+          <small
+            *ngIf="
+              updateproduct.get('productDescription')!.touched &&
+              updateproduct.get('productDescription')!.hasError('minlength')
+            "
+            >Product description should be minimum 50 characters</small
+          >
+        </div>
+      </div>
+      <div class="row mt-0 mb-2 mx-auto">
+        <div class="col addButton">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!updateproduct.valid"
+          >
+            Update Product
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<!-- <p>seller-home works!</p> -->
+
+<div class="container-fluid">
+  <div class="row" *ngFor="let val of productList">
+    <div class="col p-5">
+          <!-- <a href="#"
+        ><img
+          src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-finish-select-202207-purple?wid=2560&hei=1440&fmt=jpeg&qlt=95&.v=1662150036753"
+          alt=""
+      /></a> -->
+      <!-- replace this code with above -->
+      <img class="img-fluid" src="{{ val.productImageUrl }}" alt="product_image" />
+    </div>
+    <div class="col p-5 prodName">
+      <h4>
+        <a href="#">{{ val.productName }}</a>
+        <!-- <a href="#">{{ val.id }}</a> -->
+      </h4>
+      <small>{{ val.productDescription }}</small>
+      <a href="#"><p>More+</p></a>
+    </div>
+    <div class="col p-5">
+      <h3>{{ val.productPrice | currency : "INR" }}</h3>
+      <small>(5% off)</small> <br />
+      <small>Flat INR 3000 Off on HDFC BankCards</small> <br />
+      <small>Free delivery by <strong>Today</strong></small> <br />
+      <!-- <div class="btn"> -->
+      <button class="button-5 delete" (click) = "deleteProduct(val.id)" ><i class="fa-sharp fa-solid fa-trash"></i></button>
+      <button class="button-5 edit" routerLink ="/seller-update-product/{{val.id}}" >Edit Product Details</button>
+      <!-- </div> -->
+    </div>
+  </div>
+
+<!-- <p>seller-home works!</p> -->
+
+<!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col productImage">
+            <img
+              src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-finish-select-202207-purple?wid=2560&hei=1440&fmt=jpeg&qlt=95&.v=1662150036753"
+              alt=""
+            />
+          </div>
+          <div class="col p-5">
+           <h5>I phone 14 pro max</h5>
+           <h3>1,41,990</h3>
+           <small>(5% off)</small> <br>
+           <small>Flat INR 3000 Off on HDFC BankCards</small> <br>
+           <small>Free delivery by <strong>Today</strong></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!--   
+  <div class="col-8 p-5">
+    <h5>I phone 14 pro max</h5>
+    <h3>1,41,990</h3>
+    <small>(5% off)</small> <br>
+    <small>Flat INR 3000 Off on HDFC BankCards</small> <br>
+    <small>Free delivery by <strong>Today</strong></small>
+    <a href="#"><p>More+</p></a>
+ </div> -->
+
+<!-- <div class="row">
+  <div class="col">
+    <img
+      class="img-fluid"
+      src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-deeppurple?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1663703841896"
+      alt=""
+    />
+  </div>
+  <div class="col">
+    <img
+      class="img-fluid"
+      src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-deeppurple?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1663703841896"
+      alt=""
+    />
+  </div>
+</div> -->
+
+<!-- <app-footer></app-footer> -->
